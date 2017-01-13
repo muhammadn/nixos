@@ -41,6 +41,14 @@ with (config.services // pkgs.lib );
       '';
   };
 
+  systemd.services.nginx = {
+    preStart = ''
+      if ! test -e /var/log/nginx
+         then mkdir -p /var/log/nginx
+      fi
+    '';
+  };
+
   services.phpfpm.poolConfigs = {
        www = '' 
         listen = /var/run/php5-fpm.sock
