@@ -11,14 +11,14 @@ with (config.services // pkgs.lib );
            server {
              listen  80; # just use standard http port, no ssl
 
-             root /var/www/zalora;
+             root /var/www/zalora/public;
              index index.php index.html index.htm;
 
              server_name zalora.mydomainname.com;
              access_log  /var/log/nginx/zalora.access.log;
 
              location / {
-               try_files $uri $uri/ =404;
+               try_files $uri $uri/ /index.php?querystring;
              }
 
              error_page 404 /404.html;
@@ -30,7 +30,7 @@ with (config.services // pkgs.lib );
 
              # pass the PHP scripts to FastCGI server listening on the php-fpm socket
              location ~ \.php$ {
-                 try_files $uri =404;
+                 try_files $uri /index.php =404;
                  fastcgi_pass unix:/var/run/php-fpm.sock;
                  fastcgi_index index.php;
                  fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
