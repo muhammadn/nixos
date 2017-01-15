@@ -31,7 +31,7 @@ with (config.services // pkgs.lib );
              # pass the PHP scripts to FastCGI server listening on the php-fpm socket
              location ~ \.php$ {
                  try_files $uri =404;
-                 fastcgi_pass unix:/var/run/php5-fpm.sock;
+                 fastcgi_pass unix:/var/run/php-fpm.sock;
                  fastcgi_index index.php;
                  fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
                  include ${nginx.package}/conf/fastcgi_params;
@@ -51,7 +51,7 @@ with (config.services // pkgs.lib );
 
   services.phpfpm.poolConfigs = {
        www = '' 
-        listen = /var/run/php5-fpm.sock
+        listen = /var/run/php-fpm.sock
         user = nginx
         listen.owner = nginx
         listen.group = nginx
@@ -63,5 +63,10 @@ with (config.services // pkgs.lib );
         pm.max_spare_servers = 20
         pm.max_requests = 500 
       '';
+  };
+
+  services.mysql = { 
+    enable = true;
+    package = pkgs.mysql;
   };
 }
