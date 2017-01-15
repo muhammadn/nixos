@@ -11,6 +11,7 @@
       ./services.nix
       ./users.nix
       ./packages.nix
+      ./firewall.nix
     ];
 
   # Use the GRUB 2 boot loader.
