@@ -16,4 +16,3 @@
    chown nginx:nginx database
    chown nginx:nginx database.sqlite
 ``` 
-6.
