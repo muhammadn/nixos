@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
       ./services.nix
       ./users.nix
+      ./groups.nix
       ./packages.nix
       ./firewall.nix
     ];
