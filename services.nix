@@ -18,7 +18,7 @@ with (config.services // pkgs.lib );
              access_log  /var/log/nginx/zalora.access.log;
 
              location / {
-               try_files $uri $uri/ /index.php?querystring;
+               try_files $uri $uri/ /index.php?$query_string;
              }
 
              error_page 404 /404.html;
@@ -49,7 +49,10 @@ with (config.services // pkgs.lib );
       if ! test -e /var/www
          then mkdir -p /var/www
       fi
-      chown -R deploy:deploy /var/www
+
+      if [ $(stat -c %U /var/www) != "deploy" ]
+        then chown deploy:deploy /var/www
+      fi
     '';
   };
 
