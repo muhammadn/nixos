@@ -46,6 +46,10 @@ with (config.services // pkgs.lib );
       if ! test -e /var/log/nginx
          then mkdir -p /var/log/nginx
       fi
+      if ! test -e /var/www
+         then mkdir -p /var/www
+      fi
+      chown -R deploy:deploy /var/www
     '';
   };
 
