@@ -15,5 +15,5 @@
 ```
 chown -R nginx:nginx storage
 chown nginx:nginx database
-chown nginx:nginx database.sqlite
+chown nginx:nginx database/database.sqlite
 ```
