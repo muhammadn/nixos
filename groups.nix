@@ -1,0 +1,7 @@
+{
+  users.extraGroups = [
+    {
+      name = "deploy";
+    }
+  ];
+}
