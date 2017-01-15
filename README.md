@@ -11,8 +11,9 @@
 2. Key in your user password when prompted
 3. As *deploy* user, run: `cd /var/www && git clone https://github.com/muhammadn/zalora.git`
 4. `cd /var/www/zalora && composer install && touch database/database.sqlite` as the *deploy* user.
-5. In the same _zalora_ directory, run these command as *root* with `sudo -i`.
-```chown -R nginx:nginx storage
-   chown nginx:nginx database
-   chown nginx:nginx database.sqlite
-``` 
+5. In the same _zalora_ directory, run these command as *root* after `sudo -i`.
+```
+chown -R nginx:nginx storage
+chown nginx:nginx database
+chown nginx:nginx database.sqlite
+```
