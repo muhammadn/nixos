@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 with (config.services // pkgs.lib );
+let
+    app = import ./app.nix { pkgs = pkgs; };
+in
 {
   services.openssh.enable = true; 
   services.nginx = {
@@ -11,7 +14,7 @@ with (config.services // pkgs.lib );
            server {
              listen  80; # just use standard http port, no ssl
 
-             root /var/www/zalora/public;
+             root ${app}/public;
              index index.php index.html index.htm;
 
              server_name zalora.mydomainname.com;

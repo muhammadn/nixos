@@ -8,10 +8,10 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./services.nix
       ./users.nix
       ./groups.nix
       ./packages.nix
+      ./services.nix
       ./firewall.nix
     ];
 

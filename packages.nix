@@ -7,6 +7,5 @@
      nginx 
      php
      mysql
-     php70Packages.composer
   ];
 }
