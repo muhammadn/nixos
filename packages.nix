@@ -6,6 +6,5 @@
      git  
      nginx 
      php
-     mysql
   ];
 }
