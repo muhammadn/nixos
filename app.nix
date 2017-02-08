@@ -6,7 +6,7 @@ stdenv.mkDerivation rec {
 
   src = pkgs.fetchgit {
     url = "git@github.com:muhammadn/zalora.git";
-    sha256 = "0skvyi6igcf95v287qyqxwjzg5lk2rxas11rvky8k1fzw7fiybpw";
+    sha256 = "0zwis7zrpsc8fqi21rd91x7jqphjbkdsb3hpidm5wigczs23dvf8";
   };
 
   buildInputs = [ php php70Packages.composer ];
