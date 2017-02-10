@@ -5,6 +5,5 @@
      vim 
      git  
      nginx 
-     php
   ];
 }
